@@ -1,7 +1,7 @@
 ---
 name: Dev
 about: Use this template merging several features from **dev** to **stage**
-title: "Preparing - [FEATURES]"
+title: "Preparing - [FEATURE]"
 ---
 
 ## Description
