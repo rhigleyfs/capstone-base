@@ -8,13 +8,13 @@ assignees: ''
 ---
 
 ## Item To Be Designed
-*place a description of the item (component/page) that needs to be designed.*
+[Place a description of the item (component/page) that needs to be designed]
 
 Example:
 The quiz detail page. This will be a place for users to see the information about a quiz including the questions related to the quiz.
 
 ## Parts
-*Define the different aspect that will be on this page.*
+[Define the different pieces that this design will include]
 
 Example:
 - [ ] Quiz name
