@@ -1,93 +1,139 @@
-swagger: '2.0'
+openapi: 3.0.0
 info:
-  version: '1.0'
-  title: "Rubrics"
+  version: '1.0.0'
+  title: Rubrics
   description: App to help teachers create their rubrics
-  license:
-    name: MIT
-    url: https://github.com/apiaryio/polls-api/blob/master/LICENSE
-host: localhost:4000
-basePath: /api/v1
-schemes:
-- http
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+  - url: /api/v1
+    description: Local Server
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/rhigleyfs/Rubrics/1.0.0
 paths:
-  /rubrics:
-    x-summary: Course Collection
+  /courses:
     get:
       summary: List All Courses For a User
+      tags:
+        - Courses
+      security:
+        - JWT: []
       responses:
-        200:
-          description: Successful Response
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Rubric'
-          examples:
+        '200':
+          description: ''
+          content:
             application/json:
-              - id: uuid
-                title: ASL
-                createdAt: '2019-08-05T08:40:51.620Z'
-                updatedAt: '2019-08-05T08:40:51.620Z'
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
     post:
       summary: Create a New Course
-      parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/CourseRequest'
+      tags:
+        - Courses
+      security:
+        - JWT: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+              required:
+                - title
+            examples:
+              Example:
+                value:
+                  title: DWA
       responses:
-        201:
+        '201':
           description: ''
-          schema:
-            $ref: '#/definitions/Course'
-          examples:
+          content:
             application/json:
-                id: uuid
-                title: WAI
-                createdAt: '2019-08-05T08:40:51.620Z'
-                updatedAt: '2019-08-05T08:40:51.620Z'
-definitions:
-  Course:
-    title: Course
-    type: object
-    properties:
-      id:
-        type: string
-      title:
-        type: string
-      createdAt:
-        type: string
-      updatedAt:
-        type: string
-    required:
-      - id
-      - title
-      - createdAt
-      - updatedAt
-  Rubric:
-    title: Rubric
-    type: object
-    properties:
-      votes:
-        type: integer
-        format: int32
-      choice:
-        type: string
-    required:
-      - votes
-      - choice
-  CourseRequest:
-    title: Course Request
-    type: object
-    properties:
-      title:
-        type: string
-    required:
-      - title
-    example:
-      title: DWA
+              schema:
+                $ref: '#/components/schemas/Course'
+  '/courses/{id}':
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Course Id
+        schema:
+          type: string
+    get:
+      summary: Get One Course
+      tags:
+        - Courses
+      security:
+        - JWT: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Course'
+    put:
+      summary: Update one Course
+      tags:
+        - Courses
+      security:
+        - JWT: []
+      requestBody:
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/Course'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Course'
+    delete:
+      summary: Delete one course
+      tags:
+        - Courses
+      security:
+        - JWT: []
+      responses:
+        '200':
+          description: ''
+components:
+  schemas:
+    Course:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 3e836f45-5f86-4a9a-a27b-17e71b60317d
+        title:
+          type: string
+          example: WAI
+        createdAt:
+          type: string
+          example: '2019-08-05T08:40:51.620Z'
+        updatedAt:
+          type: string
+          example: '2019-08-05T08:40:51.620Z'
+      required:
+        - id
+        - title
+        - createdAt
+        - updatedAt
+    Rubric:
+      type: object
+      properties:
+        votes:
+          type: integer
+        choice:
+          type: string
+      required:
+        - votes
+        - choice
+  securitySchemes:
+    JWT:
+      type: http
+      scheme: Bearer
+      description: ''
