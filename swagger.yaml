@@ -7,7 +7,7 @@ info:
     name: MIT
     url: https://github.com/apiaryio/polls-api/blob/master/LICENSE
 host: localhost:4000
-basePath: /
+basePath: /api/v1
 schemes:
 - http
 consumes:
@@ -35,7 +35,7 @@ paths:
     post:
       summary: Create a New Course
       parameters:
-        - title: body
+        - name: body
           in: body
           required: true
           schema:
