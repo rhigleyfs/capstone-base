@@ -1,0 +1,93 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: "Rubrics"
+  description: App to help teachers create their rubrics
+  license:
+    name: MIT
+    url: https://github.com/apiaryio/polls-api/blob/master/LICENSE
+host: localhost:4000
+basePath: /
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /rubrics:
+    x-summary: Course Collection
+    get:
+      summary: List All Courses For a User
+      responses:
+        200:
+          description: Successful Response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Rubric'
+          examples:
+            application/json:
+              - id: uuid
+                title: ASL
+                createdAt: '2019-08-05T08:40:51.620Z'
+                updatedAt: '2019-08-05T08:40:51.620Z'
+    post:
+      summary: Create a New Course
+      parameters:
+        - title: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CourseRequest'
+      responses:
+        201:
+          description: ''
+          schema:
+            $ref: '#/definitions/Course'
+          examples:
+            application/json:
+                id: uuid
+                title: WAI
+                createdAt: '2019-08-05T08:40:51.620Z'
+                updatedAt: '2019-08-05T08:40:51.620Z'
+definitions:
+  Course:
+    title: Course
+    type: object
+    properties:
+      id:
+        type: string
+      title:
+        type: string
+      createdAt:
+        type: string
+      updatedAt:
+        type: string
+    required:
+      - id
+      - title
+      - createdAt
+      - updatedAt
+  Rubric:
+    title: Rubric
+    type: object
+    properties:
+      votes:
+        type: integer
+        format: int32
+      choice:
+        type: string
+    required:
+      - votes
+      - choice
+  CourseRequest:
+    title: Course Request
+    type: object
+    properties:
+      title:
+        type: string
+    required:
+      - title
+    example:
+      title: DWA
