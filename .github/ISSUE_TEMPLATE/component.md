@@ -1,7 +1,7 @@
 ---
 name: Component
 about: Use this template when proposing new react components
-title: "[Component Name]"
+title: "Component: [Component Name]"
 labels: Component
 assignees: ''
 
