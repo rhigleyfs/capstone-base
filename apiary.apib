@@ -6,16 +6,16 @@ Rubrics is an api for managing rubrics and grades.
 
 ## Data Structures
 ### Course (Base Model)
-+ Include Id
++ id: `e42fed93-bf8a-45d5-99f7-6d47dcdc24d0` (string, required) - Unique Identifier (uuid)
 + title: WAI (string, required)
 
 ### Rubric (Base Model)
-+ Include Id
++ id: `3e836f45-5f86-4a9a-a27b-17e71b60317d` (string, required) - Unique Identifier (uuid)
 + title: Project Proposal (string, required)
-+ course_id: '3e836f45-5f86-4a9a-a27b-17e71b60317d' (string, required)
++ course_id: 'e42fed93-bf8a-45d5-99f7-6d47dcdc24d0' (string, required)
 
 ### Rubric Item (Base Model)
-+ Include Id
++ id: `ae506d28-a581-4123-aceb-4c4d2714f197` (string, required) - Unique Identifier (uuid)
 + title: The Application (string, required)
 + descriptions (object, required)
   + excellent: description for an excellent application
@@ -27,14 +27,14 @@ Rubrics is an api for managing rubrics and grades.
 + rubric_id: '3e836f45-5f86-4a9a-a27b-17e71b60317d' (string, required)
 
 ### Student (Base Model)
-+ Include Id
++ id: `259ccb5f-1a7b-49ab-8ab4-11f94c328a17` (string, required) - Unique Identifier (uuid)
 + name: Jane Doe (string, required)
 + studentNumber: 123412141 (number, required)
-+ course_id: '3e836f45-5f86-4a9a-a27b-17e71b60317d' (string, required)
++ course_id: 'e42fed93-bf8a-45d5-99f7-6d47dcdc24d0' (string, required)
 
 ### Grade (Base Model)
-+ Include Id
-+ student_id: '3e836f45-5f86-4a9a-a27b-17e71b60317d' (string, required)
++ id: `4ff95e7f-d012-45f2-bb4c-b5b71ca42ca7` (string, required) - Unique Identifier (uuid)
++ student_id: '259ccb5f-1a7b-49ab-8ab4-11f94c328a17' (string, required)
 + rubric_id: '3e836f45-5f86-4a9a-a27b-17e71b60317d' (string, required)
 + feedback: Long text with all the feedback for the grade (string, required)
 + grade: 92.5 (number, required)
@@ -42,9 +42,6 @@ Rubrics is an api for managing rubrics and grades.
 ### Base Model (object)
 + createdAt: `2019-08-05T08:40:51.620Z` (string, required) - Date resource was create
 + updatedAt: `2019-08-05T08:40:51.620Z` (string, required) - Date resource was last updated
-
-### Id
-+ id: `3e836f45-5f86-4a9a-a27b-17e71b60317d` (string, required) - Unique Identifier (uuid)
 
 
 # Group Course Collection
@@ -158,7 +155,7 @@ Create a new rubric item
 ## /rubricItems/{id}
 
 + Parameters
-    + id: `3e836f45-5f86-4a9a-a27b-17e71b60317d` (string) - Rubric Item id
+    + id: `ae506d28-a581-4123-aceb-4c4d2714f197` (string) - Rubric Item id
     
 ### GET
 Get one rubric item by id
@@ -203,7 +200,7 @@ Create a new student
 ## /students/{id}
 
 + Parameters
-    + id: `3e836f45-5f86-4a9a-a27b-17e71b60317d` (string) - Student id
+    + id: `259ccb5f-1a7b-49ab-8ab4-11f94c328a17` (string) - Student id
     
 ### GET
 Get one student by id
@@ -247,7 +244,7 @@ Create a new grade
 ## /grades/{id}
 
 + Parameters
-    + id: `3e836f45-5f86-4a9a-a27b-17e71b60317d` (string) - Grade id
+    + id: `4ff95e7f-d012-45f2-bb4c-b5b71ca42ca7` (string) - Grade id
     
 ### GET
 Get one grade by id
