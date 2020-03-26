@@ -61,34 +61,30 @@ Create a new course
         + title: WAI (string, required)
 + Response 201 (application/json)
     + Attributes (Course)
-    
+
 
 ## /courses/{id}
-
 + Parameters
     + id: `3e836f45-5f86-4a9a-a27b-17e71b60317d` (string) - Course id
-    
+
 ### GET
 Get one course by id
 
-+ Response 200
++ Response 200 (application/json)
     + Attributes (Course)
 
-        
 ### PUT
 Update a course by id
 
-+ Response 202
++ Response 202 (application/json)
     + Attributes (Course)
-        
-        
+
 ### DELETE
 Delete a course
 
 + Response 202
 
 # Group Rubric Collection
-
 
 ## /rubrics
 ### GET
@@ -104,39 +100,33 @@ Create a new rubric
         + title: WAI (string, required)
 + Response 201 (application/json)
     + Attributes (Rubric)
-    
 
 ## /rubrics/{id}
-
 + Parameters
     + id: `3e836f45-5f86-4a9a-a27b-17e71b60317d` (string) - Rubric id
-    
+
 ### GET
 Get one rubric by id
 
-+ Response 200
++ Response 200 (application/json)
     + Attributes (Rubric)
 
-        
 ### PUT
 Update a rubric by id
 
-+ Response 202
++ Response 202 (application/json)
     + Attributes (Rubric)
-        
-        
+
 ### DELETE
 Delete a rubric
 
 + Response 202
 
 
-
-        
 # Group Rubric Item Collection
 
-
 ## /rubricItems
+
 ### GET
 Get all the rubric items
 
@@ -145,41 +135,37 @@ Get all the rubric items
 
 ### POST
 Create a new rubric item
+
 + Request (application/json)
     + Attributes (object)
         + title: WAI (string, required)
 + Response 201 (application/json)
     + Attributes (Rubric Item)
-    
 
 ## /rubricItems/{id}
 
 + Parameters
     + id: `ae506d28-a581-4123-aceb-4c4d2714f197` (string) - Rubric Item id
-    
+
 ### GET
 Get one rubric item by id
 
-+ Response 200
++ Response 200 (application/json)
     + Attributes (Rubric Item)
 
-        
 ### PUT
 Update a rubric item by id
 
-+ Response 202
++ Response 202 (application/json)
     + Attributes (Rubric Item)
-        
-        
+
 ### DELETE
 Delete a rubric item
 
 + Response 202
 
 
-        
 # Group Student Collection
-
 
 ## /students
 ### GET
@@ -195,27 +181,24 @@ Create a new student
         + title: WAI (string, required)
 + Response 201 (application/json)
     + Attributes (Student)
-    
 
 ## /students/{id}
 
 + Parameters
     + id: `259ccb5f-1a7b-49ab-8ab4-11f94c328a17` (string) - Student id
-    
+
 ### GET
 Get one student by id
 
-+ Response 200
++ Response 200 (application/json)
     + Attributes (Student)
 
-        
 ### PUT
 Update a student by id
 
-+ Response 202
++ Response 202 (application/json)
     + Attributes (Student)
-        
-        
+
 ### DELETE
 Delete a student
 
@@ -223,7 +206,6 @@ Delete a student
 
 
 # Group Grade Collection
-
 
 ## /grades
 ### GET
@@ -239,27 +221,24 @@ Create a new grade
         + title: WAI (string, required)
 + Response 201 (application/json)
     + Attributes (Grade)
-    
 
 ## /grades/{id}
 
 + Parameters
     + id: `4ff95e7f-d012-45f2-bb4c-b5b71ca42ca7` (string) - Grade id
-    
+
 ### GET
 Get one grade by id
 
-+ Response 200
++ Response 200 (application/json)
     + Attributes (Grade)
 
-        
 ### PUT
 Update a grade by id
 
-+ Response 202
++ Response 202 (application/json)
     + Attributes (Grade)
-        
-        
+
 ### DELETE
 Delete a grade
 
@@ -270,7 +249,7 @@ Delete a grade
 
 ## /auth/signup
 
-### POST 
+### POST
 Sign a user up
 + Request (application/json)
     + Attributes (object)
@@ -294,7 +273,7 @@ Log a user in
     + Attributes (object)
       + loggedIn: true (boolean, required)
       + token: JSONWEBTOKEN (string, required)
-    
+
 ## /auth/forgot
 
 ### POST
@@ -305,10 +284,10 @@ Send a reset password email when a user forgets their password
 + Response 200 (application/json)
     + Attributes (object)
       + message: 'Check your email for further instructions'
-      
+
 ## /auth/reset
 
-### POST 
+### POST
 Update the user's password with a new one and log them in
 + Request (application/json)
     + Attributes (object)
